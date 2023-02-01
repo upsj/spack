@@ -24,6 +24,7 @@ class Iwyu(CMakePackage):
 
     executables = ["^include-what-you-use$"]
 
+    version("0.19", sha256="2b10157b60ea08adc08e3896b4921c73fcadd5ec4eb652b29a34129d501e5ee0")
     version("0.18", sha256="9102fc8419294757df86a89ce6ec305f8d90a818d1f2598a139d15eb1894b8f3")
     version("0.17", sha256="eca7c04f8b416b6385ed00e33669a7fa4693cd26cb72b522cde558828eb0c665")
     version("0.16", sha256="8d6fc9b255343bc1e5ec459e39512df1d51c60e03562985e0076036119ff5a1c")
@@ -35,6 +36,7 @@ class Iwyu(CMakePackage):
 
     patch("iwyu-013-cmake.patch", when="@0.13:0.14")
 
+    depends_on("llvm+clang@15.0:15", when="@0.19")
     depends_on("llvm+clang@14.0:14", when="@0.18")
     depends_on("llvm+clang@13.0:13", when="@0.17")
     depends_on("llvm+clang@12.0:12", when="@0.16")
